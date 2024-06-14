@@ -1,3 +1,32 @@
+// Author: kKao4
+// P/s: Nếu code chạy xin đừng động vào, chỉ nên custom parameters (づ ◕‿◕ )づ
+
+// Parameters:
+
+// Name           | Type           | Default           | Description
+// speed          | number         | 800               | tốc độ ms của animation
+// containerEl    | string         |                   | className của container
+// contentEl      | string         |                   | className của content
+
+// Usage:
+
+// const mySwiper = new kKao4ZoomInOutSwiper(
+//   ".swiper-custom-class",
+//   { speed: 800, containerEl: ".background-slide-container", contentEl: ".background-slide-content" },
+//   {
+//     slidesPerView: 3,
+//     slidesPerGroup: 1,
+//     spaceBetween: (window.innerWidth / 100) * 1,
+//     loop: true,
+//     speed: 800,
+//     initialSlide: 1,
+//     navigation: {
+//       nextEl: ".swiper-next-btn",
+//       prevEl: ".swiper-prev-btn",
+//     },
+//   }
+// );
+
 class kKao4ZoomInOutSwiper {
   constructor(className, options, swiperOptions) {
     this.className = className.startsWith(".") ? className.slice(1) : className;
