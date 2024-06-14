@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+html {
+  position: relative;
+  font-size: 1vw;
+  font-family: "Inter", sans-serif;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 4.267vw;
+  }
+}
+/* TODO: REMOVE */
+
+.swiper-custom-class {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-custom-class .swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.swiper-custom-class .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

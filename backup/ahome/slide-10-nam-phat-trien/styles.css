@@ -1,0 +1,255 @@
+html {
+  position: relative;
+  font-size: 1vw;
+  background-color: rgb(13, 13, 13);
+}
+/* @media (max-width: 768px) {
+  html {
+    font-size: 4.267vw;
+  }
+} */
+/* TODO: REMOVE */
+
+.slide-ten-years-container {
+  width: 87.5rem;
+  margin: auto;
+}
+
+.swiper-ten-years {
+  width: 100%;
+}
+
+.swiper-ten-years .swiper-slide a {
+  background-color: rgb(13, 13, 13);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  user-select: none;
+}
+
+.swiper-ten-years .swiper-slide .title-container {
+  position: relative;
+}
+
+.swiper-ten-years .swiper-slide .title-container h4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+  overflow: hidden;
+  color: #d9d9d9;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+
+.swiper-ten-years .swiper-slide .title-container .title-deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.swiper-ten-years .swiper-slide:hover .title-container .title-deco,
+.title-container:hover .title-deco {
+  opacity: 1;
+}
+
+.swiper-ten-years .swiper-slide .title-container .title-deco {
+  background: linear-gradient(92deg, #ffc67e 0.27%, #ffdfc2 95.42%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+}
+.swiper-ten-years .swiper-slide:hover .divider {
+  opacity: 1;
+}
+.swiper-ten-years .swiper-slide:hover img {
+  transform: scale(1.1);
+}
+
+.swiper-ten-years .slide-date {
+  color: #a1a1a1;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: 1.25rem;
+  text-align: start;
+}
+
+.divider {
+  width: 100%;
+  height: 0.1rem;
+  opacity: 0.4;
+  background: linear-gradient(92deg, #ffc67e 0.27%, #ffdfc2 95.42%);
+  margin: 0.5rem 0;
+  transition: all 0.3s ease-out;
+}
+
+.slide-image-container {
+  height: 12.75rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-image-container img {
+  transition: all 0.3s ease-out;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-ten-years-pagination-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2.5rem;
+}
+
+.swiper-ten-years-pagination-container .swiper-ten-years-pagination-bar-overlay {
+  position: relative;
+  height: 2rem;
+  flex: 1 0 0;
+  margin: 0rem 0.4rem;
+  cursor: pointer;
+}
+
+.swiper-ten-years-pagination-container .swiper-ten-years-pagination-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.175rem;
+  background-color: #727272;
+  border-radius: 0.25rem;
+  z-index: 1;
+}
+
+.swiper-ten-years-pagination-container .swiper-ten-years-pagination-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: linear-gradient(92deg, #ffc67e 0.27%, #ffdfc2 95.42%);
+  transition: all 0.3s ease-out;
+}
+
+.swiper-ten-years-pagination-container .swiper-ten-years-pagination-bar-overlay:first-of-type {
+  margin: 0 0.4rem 0 0;
+}
+
+.swiper-ten-years-pagination-container .swiper-ten-years-pagination-bar-overlay:last-of-type {
+  margin: 0 0 0 0.4rem;
+}
+
+.swiper-ten-years-pagination-bar-active::after {
+  opacity: 1 !important;
+}
+
+.swiper-ten-years-pagination-bar-description {
+  position: absolute;
+  bottom: -0.3rem;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.875rem;
+  text-transform: uppercase;
+  color: #d9d9d9;
+}
+
+.swiper-ten-years .slide-content {
+  width: 100%;
+}
+
+.slide-ten-years-btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.slide-ten-years-feature-container {
+  display: none;
+}
+
+.slide-ten-years-prev-btn {
+  width: 16rem;
+  height: 11rem;
+  margin-left: 5rem;
+}
+
+.slide-ten-years-next-btn {
+  width: 28rem;
+  height: 16rem;
+  margin-top: -2.5rem;
+  margin-left: auto;
+}
+
+.slide-ten-years-prev-btn img,
+.slide-ten-years-next-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-ten-years-feature-container {
+  margin-top: 4rem;
+  position: relative;
+}
+
+.slide-count-conteiner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 4.5rem;
+}
+
+@media (max-width: 768px) {
+  .slide-ten-years-container {
+    width: 100%;
+  }
+  .slide-image-container {
+    height: 68rem;
+    margin-bottom: 2rem;
+  }
+  .swiper-ten-years .slide-content {
+    padding: 3.5rem;
+  }
+  .swiper-ten-years .slide-date {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  .swiper-ten-years .divider {
+    height: 0.25rem;
+    margin: 3.5rem 0;
+    opacity: 1 !important;
+  }
+  .swiper-ten-years .title-container h4 {
+    font-size: 4rem !important;
+    line-height: 6rem !important;
+    -webkit-line-clamp: 4 !important;
+    font-weight: 500 !important;
+  }
+  .swiper-ten-years-pagination-container {
+    display: none;
+  }
+  .slide-ten-years-feature-container {
+    display: block;
+  }
+}

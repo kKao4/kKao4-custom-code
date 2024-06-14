@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="slide-container">
+      <div class="swiper swiper-custom-class">
+        <div class="swiper-wrapper">
+          <!-- SECTION: first slide -->
+          <div class="swiper-slide">
+            <img src="./assets/image/2.jpg" class="slide-image slide-image-2" alt="" />
+            <p class="slide-text">Michele</p>
+            <div class="deco-shutters deco-left-primary">
+              <img src="./assets/image/2.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-left-secondary">
+              <img src="./assets/image/2.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-right-primary">
+              <img src="./assets/image/2.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-right-secondary">
+              <img src="./assets/image/2.jpg" alt="" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/image/fami-2.jpg" alt="" class="slide-image" />
+            <p class="slide-text">Fami</p>
+            <div class="deco-shutters deco-left-primary">
+              <img src="./assets/image/fami-2.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-left-secondary">
+              <img src="./assets/image/fami-2.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-right-primary">
+              <img src="./assets/image/fami-2.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-right-secondary">
+              <img src="./assets/image/fami-2.jpg" alt="" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/image/makima-1.jpg" alt="" class="slide-image" />
+            <p class="slide-text">Makima</p>
+            <div class="deco-shutters deco-left-primary">
+              <img src="./assets/image/makima-1.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-left-secondary">
+              <img src="./assets/image/makima-1.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-right-primary">
+              <img src="./assets/image/makima-1.jpg" alt="" />
+            </div>
+            <div class="deco-shutters deco-right-secondary">
+              <img src="./assets/image/makima-1.jpg" alt="" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/image/gigachad.jpg" alt="" class="slide-image slide-image-1" />
+            <p class="slide-text">Alice</p>
+            <!-- NOTE: deco left primary -->
+            <div class="deco-shutters deco-left-primary">
+              <img src="./assets/image/gigachad.jpg" alt="" />
+            </div>
+            <!-- NOTE: deco left secondary -->
+            <div class="deco-shutters deco-left-secondary">
+              <img src="./assets/image/gigachad.jpg" alt="" />
+            </div>
+            <!-- NOTE: deco right primary -->
+            <div class="deco-shutters deco-right-primary">
+              <img src="./assets/image/gigachad.jpg" alt="" />
+            </div>
+            <!-- NOTE: deco right secondary -->
+            <div class="deco-shutters deco-right-secondary">
+              <img src="./assets/image/gigachad.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <button class="prev-slide-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              fill="#FFF"
+              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+            />
+          </svg>
+        </button>
+        <button class="next-slide-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              fill="#FFF"
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+            />
+          </svg>
+        </button>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- credit -->
+    <div class="credit">
+      <button class="credit-toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            fill="white"
+            d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+          />
+        </svg>
+      </button>
+      <div class="form-container">
+        <form>
+          <label class="credit-label form-title">
+            <p>Shutters</p>
+            <input type="checkbox" class="credit-checkbox shutters-checkbox" checked />
+          </label>
+          <label class="credit-label">
+            <span>transitionTime:</span>
+            <input type="text" name="transitionTime" class="credit-input transition-time" />ms
+          </label>
+          <label class="credit-label">
+            <span>parallaxPercent:</span>
+            <input type="text" name="parallaxPercent" class="credit-input parallax-percent" />%
+          </label>
+          <label class="credit-label">
+            <span>decoWidthPercent:</span>
+            <input type="text" name="decoWidthPercent" class="credit-input deco-width-percent" />%
+          </label>
+          <label class="credit-label">
+            <span>decoTranslateScale:</span>
+            <input type="text" name="decoTranslateScale" class="credit-input deco-translate-scale" />
+          </label>
+          <label class="credit-label">
+            <span>decoTranslateRatio:</span>
+            <input type="text" name="decoTranslateRatio" class="credit-input deco-translate-ratio" />
+          </label>
+          <label class="credit-label">
+            <span>decoPositionPercent:</span>
+            <input type="text" name="decoPositionPercent" class="credit-input deco-position-percent" />%
+          </label>
+          <label class="credit-label">
+            <span>decoPositionScale:</span>
+            <input type="text" name="decoPositionScale" class="credit-input deco-position-scale" />
+          </label>
+        </form>
+        <form>
+          <label class="credit-label form-title">
+            <p>New features:</p>
+            <input type="checkbox" class="credit-checkbox" />
+          </label>
+          <label class="credit-label">
+            <span>parameters:</span>
+            <input type="text" name="parameters" class="credit-input" />
+          </label>
+          <label class="credit-label">
+            <span>parameters:</span>
+            <input type="text" name="parameters" class="credit-input" />
+          </label>
+        </form>
+      </div>
+      <p class="credit-title">
+        This website is created by
+        <img src="./assets/image/ayane.png" alt="ayane kKao4" />
+        kKao4
+      </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

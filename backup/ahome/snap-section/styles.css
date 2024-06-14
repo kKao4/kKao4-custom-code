@@ -1,0 +1,51 @@
+html {
+  position: relative;
+  font-size: 1vw;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 4.267vw;
+  }
+}
+
+.section,
+footer {
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-1 {
+  background-color: pink;
+  height: 100vh;
+}
+
+.section-2 {
+  background-color: aqua;
+  height: 100vh;
+}
+
+.section-3 {
+  background-color: aquamarine;
+  height: 100vh;
+}
+
+.section-4 {
+  background-color: bisque;
+  height: 100vh;
+}
+
+.section-5 {
+  background-color: burlywood;
+  height: 120vh;
+}
+
+.section-6 {
+  background-color: cornflowerblue;
+  height: 40vh;
+}
+
+footer {
+  height: 40vh;
+}

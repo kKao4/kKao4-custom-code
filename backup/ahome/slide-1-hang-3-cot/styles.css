@@ -1,0 +1,302 @@
+html {
+  position: relative;
+  font-size: 1vw;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 4.267vw;
+  }
+}
+
+* {
+  background-color: rgb(13, 13, 13);
+}
+/* TODO: REMOVE */
+
+@font-face {
+  font-family: "Averta";
+  src: url("./assets/font/Intelligent-Design-AvertaStdCY-Regular_3.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Averta";
+  src: url("./assets/font/Intelligent-Design-AvertaStdCY-Semibold_1.otf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Averta";
+  src: url("./assets/font/Intelligent-Design-AvertaStdCY-Bold_1.otf");
+  font-weight: 700;
+}
+
+.slide-outstanding-project-container * {
+  font-family: "Averta", sans-serif;
+  user-select: none;
+}
+
+.slide-outstanding-project-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-width: 87.5rem;
+  align-items: center;
+  margin: auto;
+  background-color: rgb(13, 13, 13);
+}
+
+.swiper-outstanding-project-container {
+  padding: 1.5rem;
+  width: 66%;
+  margin-right: 1rem;
+  border: 1px solid rgb(219, 180, 132);
+  flex-grow: 0;
+}
+
+.swiper-outstanding-project {
+  height: 20rem;
+}
+
+.swiper-outstanding-project .swiper-slide {
+  display: flex;
+  flex-direction: row;
+}
+
+.swiper-outstanding-project .swiper-slide .swiper-slide-image {
+  width: 66.7%;
+  height: 100%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.swiper-outstanding-project .swiper-slide-content {
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper-outstanding-project .swiper-slide-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  background: linear-gradient(92deg, #ffc67e 0.27%, #ffdfc2 95.42%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.swiper-outstanding-project .swiper-slide-content small {
+  color: #b7b7b7;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  letter-spacing: 0.03125rem;
+  margin-bottom: 1.5rem;
+}
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-corma {
+  width: 1.875rem;
+  height: 1.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-description {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #d9d9d9;
+  font-weight: 400;
+  margin-bottom: 1.7rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-show-more-btn {
+  position: relative;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid white;
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-show-more-btn p {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  color: white;
+  z-index: 1;
+  background-color: transparent;
+  transition: all 0.4s ease-out;
+}
+
+.swiper-slide-bg-deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: linear-gradient(92deg, #ffc67e 0.27%, #ffdfc2 95.42%);
+  transition: all 0.4s ease-out;
+  z-index: 0;
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-show-more-btn svg {
+  margin-left: 0.75rem;
+  width: 1.63rem;
+  height: 0.5625rem;
+  object-fit: cover;
+  background-color: transparent;
+  z-index: 1;
+  transition: all 0.4s ease-out;
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-show-more-btn svg * {
+  transition: all 0.4s ease-out;
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-show-more-btn:hover .swiper-slide-bg-deco {
+  opacity: 1;
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-show-more-btn:hover p {
+  color: rgb(13, 13, 13);
+}
+
+.swiper-outstanding-project .swiper-slide-content .swiper-slide-show-more-btn:hover svg * {
+  stroke: rgb(13, 13, 13);
+  fill: rgb(13, 13, 13);
+}
+
+.swiper-outstanding-project-thumb-container {
+  width: 32%;
+  margin-left: 1rem;
+}
+
+.swiper-outstanding-project-thumb {
+  height: 20rem;
+}
+
+.swiper-outstanding-project-thumb .swiper-slide {
+}
+
+.swiper-outstanding-project-thumb .swiper-slide .swiper-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-prev-btn {
+  position: absolute;
+  top: 50%;
+  left: -1rem;
+  transform: translate(-100%, -50%);
+  width: 3.625rem;
+  height: 2.5rem;
+}
+
+.swiper-prev-btn svg,
+.swiper-next-btn svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease-out;
+}
+
+.swiper-prev-btn .swiper-prev-btn-black {
+  opacity: 0;
+}
+
+.swiper-prev-btn:hover .swiper-prev-btn-white {
+  opacity: 0;
+}
+
+.swiper-prev-btn:hover .swiper-prev-btn-black {
+  opacity: 1;
+}
+
+.swiper-next-btn {
+  position: absolute;
+  top: 50%;
+  right: -1rem;
+  transform: translate(100%, -50%);
+  width: 3.625rem;
+  height: 2.5rem;
+}
+
+.swiper-next-btn .swiper-next-btn-black {
+  opacity: 0;
+}
+
+.swiper-next-btn:hover .swiper-next-btn-white {
+  opacity: 0;
+}
+
+.swiper-next-btn:hover .swiper-next-btn-black {
+  opacity: 1;
+}
+
+.this-is-a-custom-button-of-kKao4 {
+  position: relative;
+  font-family: "Averta", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25rem;
+  margin: 0 4rem;
+  color: #d9d9d9;
+}
+
+.this-is-a-custom-button-of-kKao4 span {
+  z-index: 1;
+}
+
+.this-is-a-custom-button-of-kKao4-bg-deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(93deg, #ffdbae 0.23%, #fff0e3 80.42%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
+
+.this-is-a-custom-button-of-kKao4:hover .this-is-a-custom-button-of-kKao4-bg-deco {
+  opacity: 1;
+}
+
+.this-is-a-custom-button-of-kKao4-deco {
+  position: absolute;
+  bottom: -1.2rem;
+  left: 0;
+  width: 100%;
+  height: 98%;
+  stroke-width: 0.75px;
+  stroke: #faf4ed;
+  z-index: 0;
+  transition: all 0.3s ease-out;
+  transform: scale(0.5);
+  opacity: 0;
+  font-family: "Averta", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+
+.this-is-a-custom-button-of-kKao4:hover .this-is-a-custom-button-of-kKao4-deco {
+  transform: scale(1);
+  opacity: 1;
+}

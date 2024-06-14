@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+html {
+  position: relative;
+  font-size: 1vw;
+  font-family: "Inter", sans-serif;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 4.267vw;
+  }
+}
+/* TODO: REMOVE */
+
+.slide-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-custom-class {
+  width: 40%;
+  height: 18vh;
+  margin-left: auto;
+  margin-right: 0;
+  z-index: 100;
+  padding-right: 1rem;
+  position: relative;
+}
+
+.swiper-custom-class .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.swiper-custom-class .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.background-slide-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.background-slide-container img {
+  position: absolute;
+  object-fit: cover;
+}
+
+.background-slide-content p {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.background-slide-content h2 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.swiper-next-btn {
+  position: absolute;
+  top: 50%;
+  left: 59%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: aquamarine;
+  transform: translate(-100%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+}
