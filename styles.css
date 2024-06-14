@@ -10,121 +10,106 @@ html {
   }
 }
 /* TODO: REMOVE */
-.container {
-  width: 86.5rem;
-  margin: auto;
-}
 
-.heading-container {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 0.5rem;
-}
-
-.heading-container h2 {
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 120%;
-  color: var(--grey-900);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.5rem;
-  text-decoration-color: transparent;
-  transition: all 0.3s ease;
-}
-
-.heading-container h2:hover {
-  text-decoration-color: var(--grey-900);
-}
-
-.heading-container svg {
-  margin-left: 0.62rem;
-}
-
-p.heading-description {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-  color: var(--grey-500);
-  margin-bottom: 2rem;
-}
-
-.section-trademark {
-  background: linear-gradient(180deg, #fff 0%, #e8efeb 15%), #fff;
-  margin-top: 3.75rem;
-  padding-bottom: 4.22rem;
-}
-
-.trademarks-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 0.94rem;
-}
-
-.trademark-item-link {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  color: var(--green-dark);
+.slide-container {
+  height: 100vh;
   display: flex;
   align-items: center;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-  transition: all 0.3s ease;
-  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.trademark-item-link:hover {
-  text-decoration-color: var(--green-dark);
-}
-.trademark-item-link svg {
-  width: 0.3125rem;
-  height: 0.5625rem;
-  margin-left: 0.31rem;
-}
-
-.trademark-images-container {
-  padding: 0.47rem 0.47rem 0.22rem 0.47rem;
-  border-radius: 0.23381rem;
-  background-color: #fff;
+.swiper-custom-class {
+  width: 40%;
+  height: 18vh;
+  margin-left: auto;
+  margin-right: 0;
+  z-index: 100;
+  margin-right: 3.25rem;
+  position: relative;
 }
 
-.trademark-images-container-scroll {
-  overflow-y: auto;
+.swiper-custom-class .swiper-slide {
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  max-height: 35.25rem;
-  height: fit-content;
-  padding-right: 0.47rem;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
 }
 
-.trademark-images-container-scroll::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-.trademark-images-container-scroll::-webkit-scrollbar-track {
-  background-color: #eaeaea;
-  width: 0.5rem;
-  border-radius: 9999px;
-}
-
-.trademark-images-container-scroll::-webkit-scrollbar-thumb {
-  background-color: #a9a9a9;
-  border-radius: 9999px;
-  max-width: 0.12rem;
-  margin: auto;
-}
-
-.trademark-images-container-scroll > * + * {
-  margin-bottom: 0.375rem;
-}
-
-.trademark-images-container img {
-  height: 8.5rem;
+.swiper-custom-class .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.background-slide-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.background-slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.background-slide-container img {
+  position: absolute;
+  object-fit: cover;
+}
+
+.background-slide-content p {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.background-slide-content h2 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.swiper-next-btn {
+  position: absolute;
+  top: 50%;
+  left: 56.25%;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translate(-100%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+}
+
+.swiper-prev-btn {
+  position: absolute;
+  top: 50%;
+  right: 0.5%;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translate(0, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+}
+
+.swiper-next-btn svg,
+.swiper-prev-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
