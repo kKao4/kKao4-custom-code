@@ -77,14 +77,14 @@ class kKao4ZoomInOutSwiper {
               duration: 1.2,
               ease: "power1.inOut",
             });
-            tl.set(swiperSlides[i], { autoAlpha: 0 }, "<");
+            tl.set(swiperSlides[i], { autoAlpha: 0, overwrite: true }, "<");
             tl.to(backgroundSlideContents[i - 1], { autoAlpha: 0, yPercent: 100, duration: speed / 1000 }, "<");
             tl.to(
               backgroundSlideContents[i],
               { yPercent: 0, autoAlpha: 1, duration: speed / 1000 },
               `>-=${speed / 4000}`
             );
-            tl.to(swiperSlides[i], { autoAlpha: 1, duration: speed / 1000 }, "<");
+            tl.set(swiperSlides[i], { autoAlpha: 1 }, "<");
           }
         });
       } else {
@@ -102,7 +102,7 @@ class kKao4ZoomInOutSwiper {
                 gsap.set(container.querySelector("img"), backgroundSlideImageToStyle);
               }
             });
-            tl.set(swiperSlides[i], { autoAlpha: 0 }, "<");
+            tl.set(swiperSlides[i], { autoAlpha: 0, overwrite: true }, "<");
             tl.fromTo(slide.querySelector("img"), backgroundSlideImageToStyle, {
               ...backgroundSlideImageFromStyle,
               duration: (speed * 1.5) / 1000,
