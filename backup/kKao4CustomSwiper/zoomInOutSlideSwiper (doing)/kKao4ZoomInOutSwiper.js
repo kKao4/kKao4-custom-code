@@ -4,7 +4,7 @@
 // Parameters:
 
 // Name           | Type           | Default           | Description
-// speed          | number         | 800               | tốc độ ms của animation
+// speed          | number         | swiper speed      | tốc độ ms của animation
 // containerEl    | string         |                   | className của container
 // contentEl      | string         |                   | className của content
 
@@ -29,8 +29,8 @@
 
 class kKao4ZoomInOutSwiper {
   constructor(className, options, swiperOptions) {
-    this.className = className.startsWith(".") ? className.slice(1) : className;
-    this.speed = options.speed || 800;
+    this.className = className;
+    this.speed = options.speed || swiperOptions.speed;
     this.containerEl = options.containerEl;
     this.contentEl = options.contentEl;
     this.swiperOptions = swiperOptions;
@@ -38,8 +38,8 @@ class kKao4ZoomInOutSwiper {
   }
   init() {
     const { className, speed, swiperOptions, containerEl, contentEl } = this;
-    const swiper = new Swiper(`.${className}`, swiperOptions);
-    const swiperContainer = document.querySelector(`.${className}`);
+    const swiper = new Swiper(className, swiperOptions);
+    const swiperContainer = document.querySelector(className.slice(1));
     const swiperSlides = swiperContainer.querySelectorAll(".swiper-slide");
     const initialWidth = swiperSlides[0].offsetWidth;
     const initialHeight = swiperSlides[0].offsetHeight;

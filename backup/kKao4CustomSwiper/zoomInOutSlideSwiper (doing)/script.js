@@ -1,7 +1,7 @@
 function init() {
   const mySwiper = new kKao4ZoomInOutSwiper(
     ".swiper-custom-class",
-    { speed: 800, containerEl: ".background-slide-container", contentEl: ".background-slide-content" },
+    { containerEl: ".background-slide-container", contentEl: ".background-slide-content" },
     {
       slidesPerView: 3,
       slidesPerGroup: 1,

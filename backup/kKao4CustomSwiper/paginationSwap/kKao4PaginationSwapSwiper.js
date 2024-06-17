@@ -7,6 +7,7 @@
 // slidesPerViewAndGroup    | number         |                   | số slide cho 1 lần hiển thị và chạy
 // normalStyle              | CSSProperties  |                   | style mặc định của pagination bar
 // activeStyle              | CSSProperties  |                   | style khi active của pagination bar
+// speed                    | number         | swiper speed      | speed của pagination bar
 
 // Usage:
 
@@ -33,6 +34,7 @@
 class kKao4PaginationSwapSwiper {
   constructor(className, options, swiperOptions) {
     this.className = className.startsWith(".") ? className.slice(1) : className;
+    this.speed = options.speed || swiperOptions.speed;
     this.slidesPerViewAndGroup = options.slidesPerViewAndGroup;
     this.activeStyle = options.activeStyle;
     this.normalStyle = options.normalStyle;
@@ -43,7 +45,7 @@ class kKao4PaginationSwapSwiper {
   }
 
   init() {
-    const { slidesPerViewAndGroup, activeStyle, normalStyle } = this;
+    const { slidesPerViewAndGroup, activeStyle, normalStyle, speed } = this;
     const swiper = new Swiper(`.${this.className}`, this.swiperOptions);
 
     const paginationContainer = document.querySelector(`.${this.className}-pagination-container`);
@@ -76,7 +78,8 @@ class kKao4PaginationSwapSwiper {
         paginationContainer,
         slidesPerViewAndGroup,
         activeStyle,
-        normalStyle
+        normalStyle,
+        speed
       );
     });
 
@@ -87,21 +90,30 @@ class kKao4PaginationSwapSwiper {
     return swiper;
   }
 
-  handleRealIndexChange(swiper, bars, totalBars, paginationContainer, slidesPerViewAndGroup, activeStyle, normalStyle) {
+  handleRealIndexChange(
+    swiper,
+    bars,
+    totalBars,
+    paginationContainer,
+    slidesPerViewAndGroup,
+    activeStyle,
+    normalStyle,
+    speed
+  ) {
     this.activeBar = Math.round(swiper.realIndex / slidesPerViewAndGroup);
 
     if (this.previousActiveBar === totalBars - 1 && this.activeBar === 0) {
-      this.handleTransitionEnd(totalBars - 1, 0, bars, paginationContainer, activeStyle, normalStyle, true);
+      this.handleTransitionEnd(totalBars - 1, 0, bars, paginationContainer, activeStyle, normalStyle, true, this.speed);
     } else if (this.previousActiveBar === 0 && this.activeBar === totalBars - 1) {
-      this.handleTransitionEnd(0, totalBars - 1, bars, paginationContainer, activeStyle, normalStyle, false);
+      this.handleTransitionEnd(0, totalBars - 1, bars, paginationContainer, activeStyle, normalStyle, false, speed);
     } else if (this.previousActiveBar < this.activeBar) {
-      this.handleNextSlide(bars, this.activeBar, activeStyle, normalStyle);
+      this.handleNextSlide(bars, this.activeBar, activeStyle, normalStyle, speed);
     } else if (this.previousActiveBar > this.activeBar) {
-      this.handlePrevSlide(bars, this.activeBar, totalBars, activeStyle, normalStyle);
+      this.handlePrevSlide(bars, this.activeBar, totalBars, activeStyle, normalStyle, speed);
     }
   }
 
-  handleTransitionEnd(prevIndex, newIndex, bars, paginationContainer, activeStyle, normalStyle, isReverse) {
+  handleTransitionEnd(prevIndex, newIndex, bars, paginationContainer, activeStyle, normalStyle, isReverse, speed) {
     const bar1 = document.querySelector(`.${this.className}-pagination-bar-${prevIndex}`);
     const bar2 = document.querySelector(`.${this.className}-pagination-bar-${newIndex}`);
     const distanceBar =
@@ -115,7 +127,7 @@ class kKao4PaginationSwapSwiper {
     tl.to(bar1, {
       x: isReverse ? `-${translateBar1}px` : `${translateBar1}px`,
       ...activeStyle,
-      duration: 0.8,
+      duration: speed / 1000,
     });
 
     // normal bars
@@ -142,7 +154,7 @@ class kKao4PaginationSwapSwiper {
     });
   }
 
-  handleNextSlide(bars, activeBar, activeStyle, normalStyle) {
+  handleNextSlide(bars, activeBar, activeStyle, normalStyle, speed) {
     const bar1 = document.querySelector(`.${this.className}-pagination-bar-${activeBar - 1}`);
     const bar2 = document.querySelector(`.${this.className}-pagination-bar-${activeBar}`);
     if (bar1 && bar2) {
@@ -158,7 +170,7 @@ class kKao4PaginationSwapSwiper {
         tl.to(bar1, {
           x: `${translateBar1}px`,
           ...activeStyle,
-          duration: 0.8,
+          duration: speed / 1000,
         });
 
         tl.to(
@@ -166,7 +178,7 @@ class kKao4PaginationSwapSwiper {
           {
             x: `-${translateBar2}px`,
             ...normalStyle,
-            duration: 0.8,
+            duration: speed / 1000,
           },
           "<"
         );
@@ -192,7 +204,7 @@ class kKao4PaginationSwapSwiper {
     }
   }
 
-  handlePrevSlide(bars, activeBar, totalBars, activeStyle, normalStyle) {
+  handlePrevSlide(bars, activeBar, totalBars, activeStyle, normalStyle, speed) {
     const bar1 = document.querySelector(`.${this.className}-pagination-bar-${activeBar}`);
     const bar2 = document.querySelector(
       `.${this.className}-pagination-bar-${activeBar === totalBars - 1 ? 0 : activeBar + 1}`
@@ -209,7 +221,7 @@ class kKao4PaginationSwapSwiper {
         tl.to(bar1, {
           x: `${translateBar1}px`,
           ...normalStyle,
-          duration: 0.8,
+          duration: speed / 1000,
         });
 
         tl.to(
@@ -217,7 +229,7 @@ class kKao4PaginationSwapSwiper {
           {
             x: `-${translateBar2}px`,
             ...activeStyle,
-            duration: 0.8,
+            duration: speed / 1000,
           },
           "<"
         );

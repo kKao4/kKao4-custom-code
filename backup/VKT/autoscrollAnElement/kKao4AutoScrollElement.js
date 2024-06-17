@@ -10,12 +10,7 @@
 
 // Usage:
 
-// function init() {
-//   kKao4AutoScrollElement(".trademark-images-container-scroll-noi-that");
-//   kKao4AutoScrollElement(".trademark-images-container-scroll-ngoai-that");
 //   kKao4AutoScrollElement(".trademark-images-container-scroll-noi-tang-canh-quan");
-// }
-// window.addEventListener("DOMContentLoaded", init);
 
 function kKao4AutoScrollElement(className, { duration = 12, delay = 0.8, once = false } = {}) {
   gsap.registerPlugin(ScrollToPlugin);

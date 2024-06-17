@@ -5,7 +5,7 @@
     <title>Swiper demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="../../../reset.css" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
 
@@ -13,73 +13,76 @@
     <div class="slide-container">
       <div class="swiper swiper-custom-class">
         <div class="swiper-wrapper">
-          <!-- SECTION: first slide -->
           <div class="swiper-slide">
-            <img src="./assets/image/2.jpg" class="slide-image slide-image-2" alt="" />
-            <p class="slide-text">Michele</p>
+            <img src="../../../assets/image/2.jpg" class="slide-image slide-image-2" alt="" />
+            <div class="swiper-slide-content">
+              <h2>Michele</h2>
+            </div>
             <div class="deco-shutters deco-left-primary">
-              <img src="./assets/image/2.jpg" alt="" />
+              <img src="../../../assets/image/2.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-left-secondary">
-              <img src="./assets/image/2.jpg" alt="" />
+              <img src="../../../assets/image/2.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-right-primary">
-              <img src="./assets/image/2.jpg" alt="" />
+              <img src="../../../assets/image/2.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-right-secondary">
-              <img src="./assets/image/2.jpg" alt="" />
+              <img src="../../../assets/image/2.jpg" alt="" />
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./assets/image/fami-2.jpg" alt="" class="slide-image" />
-            <p class="slide-text">Fami</p>
+            <img src="../../../assets/image/fami-2.jpg" alt="" class="slide-image" />
+            <div class="swiper-slide-content">
+              <h2>Fami</h2>
+            </div>
             <div class="deco-shutters deco-left-primary">
-              <img src="./assets/image/fami-2.jpg" alt="" />
+              <img src="../../../assets/image/fami-2.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-left-secondary">
-              <img src="./assets/image/fami-2.jpg" alt="" />
+              <img src="../../../assets/image/fami-2.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-right-primary">
-              <img src="./assets/image/fami-2.jpg" alt="" />
+              <img src="../../../assets/image/fami-2.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-right-secondary">
-              <img src="./assets/image/fami-2.jpg" alt="" />
+              <img src="../../../assets/image/fami-2.jpg" alt="" />
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./assets/image/makima-1.jpg" alt="" class="slide-image" />
-            <p class="slide-text">Makima</p>
+            <img src="../../../assets/image/makima-1.jpg" alt="" class="slide-image" />
+            <div class="swiper-slide-content">
+              <h2>Makima</h2>
+            </div>
             <div class="deco-shutters deco-left-primary">
-              <img src="./assets/image/makima-1.jpg" alt="" />
+              <img src="../../../assets/image/makima-1.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-left-secondary">
-              <img src="./assets/image/makima-1.jpg" alt="" />
+              <img src="../../../assets/image/makima-1.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-right-primary">
-              <img src="./assets/image/makima-1.jpg" alt="" />
+              <img src="../../../assets/image/makima-1.jpg" alt="" />
             </div>
             <div class="deco-shutters deco-right-secondary">
-              <img src="./assets/image/makima-1.jpg" alt="" />
+              <img src="../../../assets/image/makima-1.jpg" alt="" />
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./assets/image/gigachad.jpg" alt="" class="slide-image slide-image-1" />
-            <p class="slide-text">Alice</p>
-            <!-- NOTE: deco left primary -->
+            <img src="../../../assets/image/gigachad.jpg" alt="" class="slide-image slide-image-1" />
+            <div class="swiper-slide-content">
+              <h2>Alice</h2>
+            </div>
             <div class="deco-shutters deco-left-primary">
-              <img src="./assets/image/gigachad.jpg" alt="" />
+              <img src="../../../assets/image/gigachad.jpg" alt="" />
             </div>
-            <!-- NOTE: deco left secondary -->
             <div class="deco-shutters deco-left-secondary">
-              <img src="./assets/image/gigachad.jpg" alt="" />
+              <img src="../../../assets/image/gigachad.jpg" alt="" />
             </div>
-            <!-- NOTE: deco right primary -->
             <div class="deco-shutters deco-right-primary">
-              <img src="./assets/image/gigachad.jpg" alt="" />
+              <img src="../../../assets/image/gigachad.jpg" alt="" />
             </div>
-            <!-- NOTE: deco right secondary -->
             <div class="deco-shutters deco-right-secondary">
-              <img src="./assets/image/gigachad.jpg" alt="" />
+              <img src="../../../assets/image/gigachad.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -120,32 +123,12 @@
             <input type="checkbox" class="credit-checkbox shutters-checkbox" checked />
           </label>
           <label class="credit-label">
-            <span>transitionTime:</span>
+            <span>speed:</span>
             <input type="text" name="transitionTime" class="credit-input transition-time" />ms
           </label>
           <label class="credit-label">
             <span>parallaxPercent:</span>
             <input type="text" name="parallaxPercent" class="credit-input parallax-percent" />%
-          </label>
-          <label class="credit-label">
-            <span>decoWidthPercent:</span>
-            <input type="text" name="decoWidthPercent" class="credit-input deco-width-percent" />%
-          </label>
-          <label class="credit-label">
-            <span>decoTranslateScale:</span>
-            <input type="text" name="decoTranslateScale" class="credit-input deco-translate-scale" />
-          </label>
-          <label class="credit-label">
-            <span>decoTranslateRatio:</span>
-            <input type="text" name="decoTranslateRatio" class="credit-input deco-translate-ratio" />
-          </label>
-          <label class="credit-label">
-            <span>decoPositionPercent:</span>
-            <input type="text" name="decoPositionPercent" class="credit-input deco-position-percent" />%
-          </label>
-          <label class="credit-label">
-            <span>decoPositionScale:</span>
-            <input type="text" name="decoPositionScale" class="credit-input deco-position-scale" />
           </label>
         </form>
         <form>
@@ -171,6 +154,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./kKao4ShuttersSwiper.js" type="module"></script>
     <script src="./script.js" type="module"></script>
   </body>
 </html>

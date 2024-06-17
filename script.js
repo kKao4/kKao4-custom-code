@@ -1,17 +1,13 @@
 function init() {
-  const mySwiper = new kKao4ZoomInOutSwiper(
+  const swiper = new kKao4ParallaxSwiper(
     ".swiper-custom-class",
-    { speed: 800, containerEl: ".background-slide-container", contentEl: ".background-slide-content" },
+    { imageEl: ".swiper-slide-image", contentEl: ".swiper-slide-content" },
     {
-      slidesPerView: 3,
-      slidesPerGroup: 1,
-      spaceBetween: (window.innerWidth / 100) * 1,
-      loop: true,
-      speed: 800,
-      initialSlide: 1,
+      speed: 1000,
+      slidesPerView: 1,
       navigation: {
-        nextEl: ".swiper-next-btn",
-        prevEl: ".swiper-prev-btn",
+        nextEl: ".next-slide-btn",
+        prevEl: ".prev-slide-btn",
       },
     }
   );

@@ -3,38 +3,37 @@
 
 // Parameters:
 
-// Name            | Type           | Default           | Description
-// enabled         | boolean        | true              | bật/tắt shutters swiper
-// transitionTime  | number         | 850               | tốc độ bằng ms của các hiệu ứng
-// parallaxPercent | number         | 24                | % parallax
+// Name            | Type         | Default          | Description
+// enabled         | boolean      | true             | bật/tắt shutters swiper
+// speed           | number       | swiper speed     | tốc độ ms của parallax
+// parallaxPercent | number       | 20               | % parallax
+// contentEl       | string       |                  | class của content slide
 
 // Usage:
-// let swiper = new kKao4ShuttersSwiper(".swiper-custom-class", {}, swiperOptions);
+// const swiper = new kKao4ShuttersSwiper(
+//   ".swiper-custom-class",
+//   { enabled: true, speed: 1000, parallaxPercent: 20, contentEl: ".swiper-slide-content" },
+//   swiperOptions
+// );
 
-export class kKao4ShuttersSwiper {
+class kKao4ShuttersSwiper {
   constructor(className, options, swiperOptions) {
     this.className = className;
     this.enabled = options.enabled || true;
-    this.transitionTime = options.transitionTime || 850;
-    this.parallaxPercent = options.parallaxPercent || 24;
-    this.decoPositionPercent = options.decoPositionPercent || 20;
-    this.decoTranslateScale = options.decoTranslateScale || 0.4;
-    this.decoTranslateRatio = options.decoTranslateRatio || 1;
-    this.decoPositionScale = options.decoPositionScale || 0.65;
-    this.decoWidthPercent = options.decoWidthPercent || 20;
+    this.speed = options.speed || swiperOptions.speed;
+    this.parallaxPercent = options.parallaxPercent || 20;
+    this.contentEl = options.contentEl;
     this.swiperOptions = swiperOptions;
     return this.init();
   }
   init() {
-    const {
-      transitionTime,
-      parallaxPercent,
-      decoPositionPercent,
-      decoTranslateScale,
-      decoTranslateRatio,
-      decoPositionScale,
-      decoWidthPercent,
-    } = this;
+    const decoPositionPercent = 20;
+    const decoTranslateScale = 0.4;
+    const decoTranslateRatio = 1;
+    const decoPositionScale = 0.65;
+    const decoWidthPercent = 20;
+
+    const { speed, parallaxPercent, contentEl } = this;
 
     const swiper = new Swiper(this.className, this.swiperOptions);
 
@@ -43,7 +42,7 @@ export class kKao4ShuttersSwiper {
       const decoLeftSecondaryContainers = document.querySelectorAll(".deco-left-secondary");
       const decoRightPrimaryContainers = document.querySelectorAll(".deco-right-primary");
       const decoRightSecondaryContainers = document.querySelectorAll(".deco-right-secondary");
-      const slideTexts = document.querySelectorAll(".slide-text");
+      const contents = document.querySelectorAll(contentEl);
 
       // set initial style for all deco
       decoLeftPrimaryContainers.forEach((container, i) => {
@@ -80,69 +79,69 @@ export class kKao4ShuttersSwiper {
           const decoLeftSecondary = decoLeftSecondaryContainers[i].querySelector("img");
           const decoRightPrimary = decoRightPrimaryContainers[i].querySelector("img");
           const decoRightSecondary = decoRightSecondaryContainers[i].querySelector("img");
-          const slideText = slideTexts[i];
+          const content = contents[i];
 
           // calculate current progress for slide
           const progressSlide = Math.min(Math.max(-1, (swiper.progress - progressPerSlide * i) / progressPerSlide), 1);
 
           // compare old and new progress to detect drag or not drag
-          const dragging = Math.abs(swiper.progress - prevProgress) < 0.01;
+          const dragging = Math.abs(swiper.progress - prevProgress) < 0.02;
 
           function parallaxTranslateMainImage() {
-            img.style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            img.style.transition = dragging ? "none" : `all ${speed}ms ease`;
             img.style.transform = `translateX(${progressSlide * parallaxPercent}%)`;
           }
           function parallaxTranslateLeftPrimary() {
-            decoLeftPrimary.style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoLeftPrimary.style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoLeftPrimary.style.transform = `translateX(calc(-${decoPositionPercent}% + ${
               progressSlide * parallaxPercent * decoTranslateScale
             }%))`;
           }
           function parallaxTranslateLeftSecondary() {
-            decoLeftSecondary.style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoLeftSecondary.style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoLeftSecondary.style.transform = `translateX(calc(-${decoPositionPercent}% - ${
               progressSlide * parallaxPercent * decoTranslateScale * decoTranslateRatio
             }%))`;
           }
           function parallaxPositionLeftPrimary() {
-            decoLeftSecondaryContainers[i].style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoLeftSecondaryContainers[i].style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoLeftSecondaryContainers[i].style.left = `calc(${decoPositionPercent}% + ${
               progressSlide * parallaxPercent * decoPositionScale
             }%)`;
           }
           function parallaxPositionLeftSecondary() {
-            decoLeftSecondaryContainers[i].style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoLeftSecondaryContainers[i].style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoLeftSecondaryContainers[i].style.left = `calc(${decoPositionPercent}% + ${
               progressSlide * parallaxPercent * decoPositionScale
             }%)`;
           }
           function parallaxTranslateRightPrimary() {
-            decoRightPrimary.style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoRightPrimary.style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoRightPrimary.style.transform = `translateX(calc(-${100 - decoPositionPercent * 2}% + ${
               progressSlide * parallaxPercent * decoTranslateScale
             }%))`;
           }
           function parallaxTranslateRightSecondary() {
-            decoRightSecondary.style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoRightSecondary.style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoRightSecondary.style.transform = `translateX(calc(-${100 - decoPositionPercent * 2}% - ${
               progressSlide * parallaxPercent * decoTranslateScale * decoTranslateRatio
             }%))`;
           }
           function parallaxPositionRightPrimary() {
-            decoRightPrimaryContainers[i].style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoRightPrimaryContainers[i].style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoRightPrimaryContainers[i].style.right = `calc(${decoPositionPercent}% + ${
               progressSlide * parallaxPercent * decoPositionScale
             }%)`;
           }
           function parallaxPositionRightSecondary() {
-            decoRightSecondaryContainers[i].style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
+            decoRightSecondaryContainers[i].style.transition = dragging ? "none" : `all ${speed}ms ease`;
             decoRightSecondaryContainers[i].style.right = `calc(${decoPositionPercent}% - ${
               progressSlide * parallaxPercent * decoPositionScale
             }%)`;
           }
-          function parallaxSlideText() {
-            slideText.style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;
-            slideText.style.transform = `translateX(${progressSlide * parallaxPercent * 12}%)`;
+          function parallaxContent() {
+            content.style.transition = dragging ? "none" : `all ${speed}ms ease`;
+            content.style.transform = `translateX(${progressSlide * parallaxPercent * 12}%)`;
           }
 
           parallaxTranslateMainImage();
@@ -154,7 +153,7 @@ export class kKao4ShuttersSwiper {
           parallaxTranslateRightSecondary();
           parallaxPositionRightPrimary();
           parallaxPositionRightSecondary();
-          parallaxSlideText();
+          parallaxContent();
         });
 
         // set new prev progress

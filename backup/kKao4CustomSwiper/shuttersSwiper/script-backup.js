@@ -69,7 +69,7 @@ function init() {
       const progressSlide = Math.min(Math.max(-1, (swiper.progress - progressPerSlide * i) / progressPerSlide), 1);
 
       // compare old and new progress to detect drag or not drag
-      const dragging = Math.abs(swiper.progress - prevProgress) < 0.01;
+      const dragging = Math.abs(swiper.progress - prevProgress) < 0.02;
 
       function parallaxTranslateMainImage() {
         img.style.transition = dragging ? "none" : `all ${transitionTime}ms ease`;

@@ -1,5 +1,3 @@
-import { kKao4ShuttersSwiper } from "./kKao4ShuttersSwiper.js";
-
 const swiperOptions = {
   speed: 1000,
   navigation: {
@@ -12,7 +10,7 @@ const swiperOptions = {
 };
 
 function init() {
-  let swiper = new kKao4ShuttersSwiper(".swiper-custom-class", {}, swiperOptions);
+  let swiper = new kKao4ShuttersSwiper(".swiper-custom-class", { contentEl: ".swiper-slide-content" }, swiperOptions);
 
   const inputs = document.querySelectorAll("input");
   inputs.forEach((input) => {
@@ -30,25 +28,15 @@ function init() {
     }
   });
 
-  const transitionTimeInput = document.querySelector(".transition-time");
+  const speedInput = document.querySelector(".transition-time");
   const parallaxPercentInput = document.querySelector(".parallax-percent");
-  const decoWidthPercentInput = document.querySelector(".deco-width-percent");
-  const decoTranslateScaleInput = document.querySelector(".deco-translate-scale");
-  const decoTranslateRatioInput = document.querySelector(".deco-translate-ratio");
-  const decoPositionPercentInput = document.querySelector(".deco-position-percent");
-  const decoPositionScaleInput = document.querySelector(".deco-position-scale");
 
-  transitionTimeInput.addEventListener("change", (e) => {
+  speedInput.addEventListener("change", (e) => {
     swiper = new kKao4ShuttersSwiper(
       ".swiper-custom-class",
       {
-        transitionTime: e.target.value,
+        speed: e.target.value,
         parallaxPercent: parallaxPercentInput.value,
-        decoWidthPercent: decoWidthPercentInput.value,
-        decoTranslateScale: decoTranslateScaleInput.value,
-        decoTranslateRatio: decoTranslateRatioInput.value,
-        decoPositionPercent: decoPositionPercentInput.value,
-        decoPositionScale: decoPositionScaleInput.value,
       },
       swiperOptions
     );
@@ -57,92 +45,13 @@ function init() {
     swiper = new kKao4ShuttersSwiper(
       ".swiper-custom-class",
       {
-        transitionTime: transitionTimeInput.value,
+        speed: speedInput.value,
         parallaxPercent: e.target.value,
-        decoWidthPercent: decoWidthPercentInput.value,
-        decoTranslateScale: decoTranslateScaleInput.value,
-        decoTranslateRatio: decoTranslateRatioInput.value,
-        decoPositionPercent: decoPositionPercentInput.value,
-        decoPositionScale: decoPositionScaleInput.value,
       },
       swiperOptions
     );
   });
-  decoWidthPercentInput.addEventListener("change", (e) => {
-    swiper = new kKao4ShuttersSwiper(
-      ".swiper-custom-class",
-      {
-        transitionTime: transitionTimeInput.value,
-        parallaxPercent: parallaxPercentInput.value,
-        decoWidthPercent: e.target.value,
-        decoTranslateScale: decoTranslateScaleInput.value,
-        decoTranslateRatio: decoTranslateRatioInput.value,
-        decoPositionPercent: decoPositionPercentInput.value,
-        decoPositionScale: decoPositionScaleInput.value,
-      },
-      swiperOptions
-    );
-  });
-  decoTranslateScaleInput.addEventListener("change", (e) => {
-    swiper = new kKao4ShuttersSwiper(
-      ".swiper-custom-class",
-      {
-        transitionTime: transitionTimeInput.value,
-        parallaxPercent: parallaxPercentInput.value,
-        decoWidthPercent: decoWidthPercentInput.value,
-        decoTranslateScale: e.target.value,
-        decoTranslateRatio: decoTranslateRatioInput.value,
-        decoPositionPercent: decoPositionPercentInput.value,
-        decoPositionScale: decoPositionScaleInput.value,
-      },
-      swiperOptions
-    );
-  });
-  decoTranslateRatioInput.addEventListener("change", (e) => {
-    swiper = new kKao4ShuttersSwiper(
-      ".swiper-custom-class",
-      {
-        transitionTime: transitionTimeInput.value,
-        parallaxPercent: parallaxPercentInput.value,
-        decoWidthPercent: decoWidthPercentInput.value,
-        decoTranslateScale: decoTranslateScaleInput.value,
-        decoTranslateRatio: e.target.value,
-        decoPositionPercent: decoPositionPercentInput.value,
-        decoPositionScale: decoPositionScaleInput.value,
-      },
-      swiperOptions
-    );
-  });
-  decoPositionPercentInput.addEventListener("change", (e) => {
-    swiper = new kKao4ShuttersSwiper(
-      ".swiper-custom-class",
-      {
-        transitionTime: transitionTimeInput.value,
-        parallaxPercent: parallaxPercentInput.value,
-        decoWidthPercent: decoWidthPercentInput.value,
-        decoTranslateScale: decoTranslateScaleInput.value,
-        decoTranslateRatio: decoTranslateRatioInput.value,
-        decoPositionPercent: e.target.value,
-        decoPositionScale: decoPositionScaleInput.value,
-      },
-      swiperOptions
-    );
-  });
-  decoPositionScaleInput.addEventListener("change", (e) => {
-    swiper = new kKao4ShuttersSwiper(
-      ".swiper-custom-class",
-      {
-        transitionTime: transitionTimeInput.value,
-        parallaxPercent: parallaxPercentInput.value,
-        decoWidthPercent: decoWidthPercentInput.value,
-        decoTranslateScale: decoTranslateScaleInput.value,
-        decoTranslateRatio: decoTranslateRatioInput.value,
-        decoPositionPercent: decoPositionPercentInput.value,
-        decoPositionScale: e.target.value,
-      },
-      swiperOptions
-    );
-  });
+
   const creditToggleButton = document.querySelector(".credit-toggle-btn");
   const formContainer = document.querySelector(".form-container");
   creditToggleButton.addEventListener("click", () => {
