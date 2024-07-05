@@ -1,0 +1,44 @@
+.primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.125rem 1.125rem 2.125rem;
+  width: fit-content;
+  border-radius: 9999px;
+  background: #2f2e79;
+  /* NOTE: important */
+  overflow: hidden;
+  position: relative;
+}
+
+.primary-btn p {
+  color: #fff;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  text-transform: uppercase;
+}
+
+.primary-btn svg {
+  width: 0.8125rem;
+  height: 0.75rem;
+  margin-left: 0.44rem;
+}
+
+.primary-btn > *:not(.btn-round-deco) {
+  z-index: 1;
+}
+
+.btn-round-deco {
+  background-color: #f4475c;
+  position: absolute;
+  z-index: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-out;
+}

@@ -36,6 +36,7 @@ class kKao4PaginationSwapSwiper {
     this.className = className.startsWith(".") ? className.slice(1) : className;
     this.speed = options.speed || swiperOptions.speed;
     this.slidesPerViewAndGroup = options.slidesPerViewAndGroup;
+    this.clickable = options.clickable;
     this.activeStyle = options.activeStyle;
     this.normalStyle = options.normalStyle;
     this.swiperOptions = swiperOptions;
@@ -45,7 +46,7 @@ class kKao4PaginationSwapSwiper {
   }
 
   init() {
-    const { slidesPerViewAndGroup, activeStyle, normalStyle, speed } = this;
+    const { slidesPerViewAndGroup, activeStyle, normalStyle, speed, clickable } = this;
     const swiper = new Swiper(`.${this.className}`, this.swiperOptions);
 
     const paginationContainer = document.querySelector(`.${this.className}-pagination-container`);
@@ -86,6 +87,15 @@ class kKao4PaginationSwapSwiper {
     swiper.on("beforeTransitionStart", (swiper) => {
       this.previousActiveBar = swiper.realIndex / slidesPerViewAndGroup;
     });
+
+    if (clickable) {
+      const paginationBars = document.querySelectorAll(`.${this.className}-pagination-bar`);
+      paginationBars.forEach((bar, i) => {
+        bar.addEventListener("click", () => {
+          swiper.slideTo(i, speed);
+        });
+      });
+    }
 
     return swiper;
   }
@@ -255,3 +265,4 @@ class kKao4PaginationSwapSwiper {
     }
   }
 }
+

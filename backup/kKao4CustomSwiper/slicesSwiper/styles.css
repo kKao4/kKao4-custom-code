@@ -11,6 +11,10 @@ html {
 }
 /* TODO: REMOVE */
 
+.slide-container {
+  position: relative;
+}
+
 .swiper-custom-class {
   width: 100%;
   height: 100vh;
@@ -23,8 +27,7 @@ html {
   justify-content: center;
   align-items: center;
   user-select: none;
-  overflow: hidden;
-  position: relative;
+  background-color: transparent;
 }
 
 .swiper-custom-class .swiper-slide img {
@@ -32,6 +35,53 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.deco-next-image {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.deco-next-image img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.deco-next-image-1 {
+  right: 80%;
+}
+.deco-next-image-1 img {
+  transform: translateX(80%);
+}
+
+.deco-next-image-2 {
+  right: 60%;
+}
+.deco-next-image-2 img {
+  transform: translateX(60%);
+}
+
+.deco-next-image-3 {
+  right: 40%;
+}
+.deco-next-image-3 img {
+  transform: translateX(40%);
+}
+
+.deco-next-image-4 {
+  right: 20%;
+}
+.deco-next-image-4 img {
+  transform: translateX(20%);
 }
 
 .prev-slide-btn {
@@ -61,14 +111,4 @@ html {
 .next-slide-btn svg {
   width: 3rem;
   height: 3rem;
-}
-
-.swiper-slide-content {
-  position: absolute;
-  left: 5.5rem;
-  bottom: 3.5rem;
-  z-index: 100;
-  color: #fff;
-  font-size: 4rem;
-  font-weight: 600;
 }
