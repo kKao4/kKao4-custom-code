@@ -1,3 +1,5 @@
+// Author: kKao4
+
 function kKao4DetectDirectionScroll(element = "root", upFnc, downFnc) {
   let lastScrollTop = element === "root" ? window.scrollY || document.documentElement.scrollTop : element.scrollTop;
   function detectDirection() {

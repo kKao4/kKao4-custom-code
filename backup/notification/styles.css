@@ -1,0 +1,50 @@
+.noti-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 24rem;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  border: 1px solid hsl(0, 0%, 93%);
+  padding: 1rem;
+  z-index: 99;
+  box-shadow: 0 4px 12px #0000001a;
+  transform: translate(0, calc(100% + 2rem));
+  transition: all 0.4s ease;
+}
+
+.noti-container strong {
+  color: black;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.noti-container > button {
+  width: 0.875rem;
+  height: 0.875rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  opacity: 0.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noti-container > button > svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .noti-container {
+    width: 92%;
+    bottom: 1rem;
+    right: 50%;
+    transform: translate(50%, calc(100% + 1rem));
+  }
+}

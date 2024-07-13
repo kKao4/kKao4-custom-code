@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+html {
+  position: relative;
+  font-size: 1vw;
+  font-family: "Inter", sans-serif;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 4.267vw;
+  }
+}
+/* TODO: REMOVE */
+
+body {
+  padding: 12rem 0 0 0;
+}
+
+.loop-container {
+  background-color: palevioletred;
+  height: 24rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.loop-item-container{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.loop-item-container .loop-item {
+  height: 100%;
+  width: 32rem;
+  flex: none;
+}
+
+.loop-item-container .loop-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -39,7 +39,7 @@ class kKao4ZoomInOutSwiper {
   init() {
     const { className, speed, swiperOptions, containerEl, contentEl } = this;
     const swiper = new Swiper(className, swiperOptions);
-    const swiperContainer = document.querySelector(className.slice(1));
+    const swiperContainer = document.querySelector(className);
     const swiperSlides = swiperContainer.querySelectorAll(".swiper-slide");
     const initialWidth = swiperSlides[0].offsetWidth;
     const initialHeight = swiperSlides[0].offsetHeight;
