@@ -1,0 +1,116 @@
+.section-tu-sach {
+  height: 62rem;
+}
+
+.section-tu-sach .content-container {
+  position: absolute;
+  z-index: 2;
+  top: 11rem;
+  left: 14rem;
+}
+
+.section-tu-sach .content-container h2 {
+  color: var(--Foundation-PURPLE-purple-500, #3e4089);
+  font-family: Quicksand;
+  font-size: 3.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-tu-sach .content-container .heading-deco-1 {
+  width: 6.75rem;
+  height: 0.25rem;
+  background-color: #ff5a36;
+}
+
+.section-tu-sach .slide-contents-container {
+  margin-top: 3.25rem;
+}
+
+.section-tu-sach .slide-contents-container .slide-content-container {
+  width: 22rem;
+}
+
+.section-tu-sach .slide-content-container .section-deco-5 {
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.section-tu-sach .slide-content-container h3 {
+  color: var(--Neutral-N500, #333);
+  font-family: Quicksand;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: -0.0125rem;
+  margin-bottom: 1rem;
+}
+
+.section-tu-sach .section-deco-6 {
+  position: absolute;
+  height: 30rem;
+  z-index: 0;
+  top: 11.375rem;
+  left: 21rem;
+  opacity: 0.32;
+}
+
+.section-tu-sach .section-deco-7 {
+  position: absolute;
+  width: 8.29888rem;
+  height: 8.21219rem;
+  top: 10rem;
+  right: 12rem;
+  z-index: 0;
+  opacity: 0.32;
+}
+
+.section-tu-sach .tu-sach-container {
+  position: absolute;
+  top: 17.5rem;
+  right: 3.75rem;
+  width: 59rem;
+  overflow: hidden;
+  height: 25rem;
+}
+
+.section-tu-sach .tu-sach-container .item {
+  position: absolute;
+  width: fit-content;
+  height: 100%;
+  top: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.section-tu-sach .tu-sach-container .item > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.section-tu-sach .tu-sach-container .item > svg {
+  position: absolute;
+  width: 3.25rem;
+  bottom: -0.25rem;
+  right: 1.5rem;
+  z-index: 0;
+}
+
+.section-tu-sach .next-btn,
+.section-tu-sach .prev-btn {
+  width: 4rem;
+  height: 4rem;
+  background-color: #165bb8;
+  border-radius: 9999px;
+  color: white;
+  cursor: pointer;
+}

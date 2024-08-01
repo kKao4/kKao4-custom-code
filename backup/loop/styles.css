@@ -33,6 +33,7 @@ body {
   height: 100%;
   width: 32rem;
   flex: none;
+  margin-left: 2rem;
 }
 
 .loop-item-container .loop-item img {

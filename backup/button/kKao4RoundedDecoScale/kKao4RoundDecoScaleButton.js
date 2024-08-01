@@ -1,7 +1,9 @@
-function kKao4RoundDecoScaleButton(selector, selectorDeco) {
-  const buttons = document.querySelectorAll(selector);
+// Author: kKao4
+
+function kKao4RoundDecoScaleButton({ buttonEl, decoEl }) {
+  const buttons = document.querySelectorAll(buttonEl);
   buttons.forEach((btn) => {
-    const buttonRoundDeco = btn.querySelector(selectorDeco);
+    const buttonRoundDeco = btn.querySelector(decoEl);
     const buttonRoundDecoWidth = parseFloat(buttonRoundDeco.offsetWidth);
     const btnWidth = parseFloat(btn.offsetWidth);
     const scaleMultiply = (btnWidth / buttonRoundDecoWidth) * 2.5;

@@ -1,7 +1,7 @@
 // Author: kKao4
 
-function kKao4DecodeTranslateValue(selector) {
-  const element = typeof selector !== "string" ? selector : document.querySelector(selector);
+function kKao4DecodeTranslateValue({ el }) {
+  const element = typeof el !== "string" ? el : document.querySelector(el);
   const transformValue = window.getComputedStyle(element).getPropertyValue("transform");
   let translateX = 0,
     translateY = 0,
