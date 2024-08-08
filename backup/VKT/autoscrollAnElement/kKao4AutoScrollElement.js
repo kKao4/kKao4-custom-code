@@ -16,24 +16,16 @@ function kKao4AutoScrollElement(className, { duration = 12, delay = 0.8, once = 
   gsap.registerPlugin(ScrollToPlugin);
 
   const width = window.innerWidth;
-  // select element
   const element = document.querySelector(className);
 
-  // detect direction scroll
   let directionScroll = "down";
-  let lastScrollTop = element.scrollTop;
-  function detectDirection() {
-    const scrollTopPosition = element.scrollTop;
-    if (scrollTopPosition < lastScrollTop) {
-      directionScroll = "up";
-    } else if (scrollTopPosition > lastScrollTop) {
-      directionScroll = "down";
-    }
-    lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition;
-  }
-  element.addEventListener("scroll", detectDirection);
+  kKao4DetectDirectionScroll({
+    el: "root",
+    onScroll: (direction) => {
+      directionScroll = direction;
+    },
+  });
 
-  // function auto scroll
   const autoScrollElement = ({ progress = 0, directionScroll = "down" } = {}) => {
     const tl = gsap.timeline({});
     tl.to(element, {
@@ -56,7 +48,6 @@ function kKao4AutoScrollElement(className, { duration = 12, delay = 0.8, once = 
     );
   };
 
-  // first run autoscroll
   autoScrollElement();
 
   element.addEventListener(width < 768 ? "touchstart" : "mouseenter", () => {

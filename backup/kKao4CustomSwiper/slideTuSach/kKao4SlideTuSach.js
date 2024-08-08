@@ -6,6 +6,7 @@ function kKao4SlideTuSach({
   navigation: { prevEl, nextEl },
   speed = 800,
   startIndex = 0,
+  initialItemWidth,
   initialDistance,
   onSlideChange,
 }) {
@@ -17,22 +18,23 @@ function kKao4SlideTuSach({
   let activeIndex = startIndex;
   let isAnimating = false;
   const containerWidth = parseFloat(container.offsetWidth);
-  const itemWidth = parseFloat(items[0].offsetWidth);
   const initialDistance0 = 0;
   const initialDistance1 = initialDistance;
-  const initialDistance2 = containerWidth - itemWidth - initialDistance;
-  const initialDistance3 = containerWidth - itemWidth;
+  const initialDistance2 = containerWidth - initialItemWidth - initialDistance;
+  const initialDistance3 = containerWidth - initialItemWidth;
+  
+  items.forEach((item) => (item.style.offsetWidth = `${initialItemWidth}px`));
 
+  const tl = gsap.timeline({});
   items.forEach((item, i) => {
-    gsap.set(item, { autoAlpha: 0 });
     if (i < activeIndex) {
-      gsap.set(item, { x: initialDistance0 });
+      tl.set(item, { x: `${initialDistance0}px`, autoAlpha: 0 });
     } else if (i === activeIndex) {
-      gsap.set(item, { x: initialDistance1, autoAlpha: 1 });
+      tl.set(item, { x: `${initialDistance1}px`, autoAlpha: 1 });
     } else if (i === activeIndex + 1) {
-      gsap.set(item, { x: initialDistance2, autoAlpha: speed / 2000 });
+      tl.set(item, { x: `${initialDistance2}px`, autoAlpha: 0.4 });
     } else {
-      gsap.set(item, { x: initialDistance3 });
+      tl.set(item, { x: `${initialDistance3}px`, autoAlpha: 0 });
     }
   });
 
@@ -43,15 +45,13 @@ function kKao4SlideTuSach({
     nextItem();
   });
 
-  kKao4Drag({
-    containerEl,
-    onDrop: (x, y) => {
-      if (x < -20) {
-        nextItem();
-      } else if (x > 20) {
-        prevItem();
-      }
-    },
+  Observer.create({
+    target: document.querySelector(".section-tu-sach-desktop .tu-sach-container"),
+    type: "pointer, touch",
+    onRight: () => prevItem(),
+    onLeft: () => nextItem(),
+    dragMinimum: 12,
+    tolerance: 12,
   });
 
   function prevItem() {
@@ -66,7 +66,7 @@ function kKao4SlideTuSach({
       tl.to(
         items[activeIndex],
         {
-          x: initialDistance1,
+          x: `${initialDistance1}px`,
           autoAlpha: 1,
           duration: speed / 1000,
           ease: "power1.inOut",
@@ -79,8 +79,8 @@ function kKao4SlideTuSach({
       tl.to(
         items[activeIndex + 1],
         {
-          x: initialDistance2,
-          autoAlpha: speed / 2000,
+          x: `${initialDistance2}px`,
+          autoAlpha: 0.4,
           duration: speed / 1000,
           ease: "power1.inOut",
           onStart: () => {
@@ -93,7 +93,7 @@ function kKao4SlideTuSach({
       );
       tl.to(
         items[activeIndex + 2],
-        { x: initialDistance3, autoAlpha: 0, duration: speed / 1000, ease: "power1.inOut" },
+        { x: `${initialDistance3}px`, autoAlpha: 0, duration: speed / 1000, ease: "power1.inOut" },
         "root"
       );
     }
@@ -111,7 +111,7 @@ function kKao4SlideTuSach({
       tl.to(
         items[activeIndex - 1],
         {
-          x: initialDistance0,
+          x: `${initialDistance0}px`,
           autoAlpha: 0,
           duration: speed / 1000,
           ease: "power1.inOut",
@@ -124,7 +124,7 @@ function kKao4SlideTuSach({
       tl.to(
         items[activeIndex],
         {
-          x: initialDistance1,
+          x: `${initialDistance1}px`,
           autoAlpha: 1,
           duration: speed / 1000,
           ease: "power1.inOut",
@@ -139,7 +139,7 @@ function kKao4SlideTuSach({
       if (activeIndex < items.length - 1) {
         tl.to(
           items[activeIndex + 1],
-          { x: initialDistance2, autoAlpha: speed / 2000, duration: speed / 1000, ease: "power1.inOut" },
+          { x: `${initialDistance2}px`, autoAlpha: 0.4, duration: speed / 1000, ease: "power1.inOut" },
           "root"
         );
       }

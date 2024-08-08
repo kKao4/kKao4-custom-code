@@ -1,18 +1,18 @@
 // Author: kKao4
 
 function kKao4DetectDirectionScroll({ el = "root", onScroll }) {
-  let direction;
+  let directionScroll;
   let lastScrollTop = el === "root" ? window.scrollY || document.documentElement.scrollTop : el.scrollTop;
-  function detectDirection() {
+  function detectDirectionScroll() {
     const scrollTopPosition = el === "root" ? window.scrollY || document.documentElement.scrollTop : el.scrollTop;
     if (scrollTopPosition < lastScrollTop) {
-      direction = "up";
-      onScroll(direction);
+      directionScroll = "up";
+      onScroll(directionScroll);
     } else if (scrollTopPosition > lastScrollTop) {
-      direction = "down";
-      onScroll(direction);
+      directionScroll = "down";
+      onScroll(directionScroll);
     }
     lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition;
   }
-  (el === "root" ? window : element).addEventListener("scroll", detectDirection);
+  (el === "root" ? window : element).addEventListener("scroll", detectDirectionScroll);
 }

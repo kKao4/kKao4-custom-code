@@ -6,21 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="../../reset.css" />
     <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
 
   <body>
-    <main>
-      <button class="noti-trigger-btn noti-trigger-btn-1">Show first notification</button>
-      <button class="noti-trigger-btn noti-trigger-btn-2">Show second notification</button>
-    </main>
-
-    <div class="notis-container">
-      
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="./kkao4Notification.js"></script>
-    <script src="../../utils/kKao4DecodeTranslateValue.js"></script>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
