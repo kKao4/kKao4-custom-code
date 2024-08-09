@@ -54,7 +54,7 @@ function kKao4AutoScrollElement(className, { duration = 12, delay = 0.8, once = 
     gsap.killTweensOf(element);
   });
   element.addEventListener(width < 768 ? "touchend" : "mouseleave", () => {
-    const progress = Math.max(Math.min(parseFloat(element.scrollTop) / parseFloat(element.offsetHeight), 1), 0);
+    const progress = gsap.utils.clamp(0, 1, parseFloat(element.scrollTop) / parseFloat(element.offsetHeight));
     autoScrollElement({ progress, directionScroll });
   });
 }

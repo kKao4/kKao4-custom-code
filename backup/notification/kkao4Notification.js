@@ -6,6 +6,8 @@ function kKao4Notification({
   gap = window.innerWidth / 100,
   bottom = (window.innerWidth / 100) * 2,
 } = {}) {
+  const isDesktop = window.innerWidth > 768;
+
   window.totalNoti = Math.max(typeof window.totalNoti === "number" ? window.totalNoti + 1 : 1, 1);
   const notiId = window.totalNoti - 1;
 
@@ -36,14 +38,14 @@ function kKao4Notification({
 
   allNotis.forEach((noti, i) => {
     noti.querySelector("button").addEventListener("click", () => {
-      noti.style.transform = "translate(0,100%)";
+      noti.style.transform = `translate(${isDesktop ? "0" : "50%"},100%)`;
       window.totalNoti -= 1;
       const decreaseY = noti.offsetHeight + gap;
 
       allNotis.forEach((item, j) => {
         if (j > i) {
           const { y } = kKao4DecodeTranslateValue(item);
-          item.style.transform = `translate(0, -${y - decreaseY}px)`;
+          item.style.transform = `translate(${isDesktop ? "0" : "50%"}, -${y - decreaseY}px)`;
         }
       });
 
@@ -54,13 +56,13 @@ function kKao4Notification({
   });
 
   setTimeout(() => {
-    activeNoti.style.transform = `translate(0, -${prevNotisHeight}px)`;
+    activeNoti.style.transform = `translate(${isDesktop ? "0" : "50%"}, -${prevNotisHeight}px)`;
   }, 1);
 
   setTimeout(() => {
     const noti = notisContainer.querySelector(`.noti-container[data-index="${notiId}"]`);
     if (noti) {
-      noti.style.transform = "translate(0,100%)";
+      noti.style.transform = `translate(${isDesktop ? "0" : "50%"},100%)`;
       window.totalNoti -= 1;
       noti.addEventListener("transitionend", () => {
         noti.remove();

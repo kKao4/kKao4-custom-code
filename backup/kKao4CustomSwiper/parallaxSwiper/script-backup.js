@@ -102,6 +102,7 @@ function init() {
   const images = document.querySelectorAll(".swiper-slide-image");
   const contents = document.querySelectorAll(".swiper-slide-content");
   let prevProgress = 0;
+  let isGsap = typeof gsap !== "undefined";
   const prevSlideButton = document.querySelector(".prev-slide-btn");
   const nextSlideButton = document.querySelector(".next-slide-btn");
   swiper.on("slideChangeTransitionStart", () => {
@@ -125,7 +126,9 @@ function init() {
         img.style.transition = "none";
         img.style.transform = "translateX(100%)";
       }
-      const parallax = Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
+      const parallax = isGsap
+        ? gsap.utils.clamp(-1, 1, (swiper.progress - progressPerSlide * i) / progressPerSlide)
+        : Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
       if (dragging) {
         contents[i].style.transition = "none";
         contents[i].style.transform = `translateX(${parallax * 20 * 100}%)`;
@@ -134,7 +137,9 @@ function init() {
         contents[i].style.transform = `translateX(${parallax * 20 * 100}%)`;
       }
       if (realIndex === i) {
-        const parallax = Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
+        const parallax = isGsap
+          ? gsap.utils.clamp(-1, 1, (swiper.progress - progressPerSlide * i) / progressPerSlide)
+          : Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
         if (dragging) {
           img.style.transition = "none";
           img.style.transform = `translateX(${parallax * 100}%)`;
@@ -144,7 +149,9 @@ function init() {
         }
       }
       if (realIndex - 1 === i) {
-        const parallax = Math.min(Math.max((progressPerSlide * (i + 1) - swiper.progress) / progressPerSlide, 0), 1);
+        const parallax = isGsap
+          ? gsap.utils.clamp(0, 1, (progressPerSlide * (i + 1) - swiper.progress) / progressPerSlide)
+          : Math.min(Math.max((progressPerSlide * (i + 1) - swiper.progress) / progressPerSlide, 0), 1);
         if (dragging) {
           img.style.transition = "none";
           img.style.transform = `translateX(${100 - parallax * 100}%)`;
@@ -154,7 +161,9 @@ function init() {
         }
       }
       if (realIndex + 1 === i) {
-        const parallax = Math.min(Math.max((swiper.progress - progressPerSlide * (i - 1)) / progressPerSlide, 0), 1);
+        const parallax = isGsap
+          ? gsap.utils.clamp(0, 1, (swiper.progress - progressPerSlide * (i - 1)) / progressPerSlide)
+          : Math.min(Math.max((swiper.progress - progressPerSlide * (i - 1)) / progressPerSlide, 0), 1);
         if (dragging) {
           img.style.transition = "none";
           img.style.transform = `translateX(-${100 - parallax * 100}%)`;

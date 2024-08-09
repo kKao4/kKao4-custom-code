@@ -22,7 +22,7 @@ function kKao4SlideTuSach({
   const initialDistance1 = initialDistance;
   const initialDistance2 = containerWidth - initialItemWidth - initialDistance;
   const initialDistance3 = containerWidth - initialItemWidth;
-  
+
   items.forEach((item) => (item.style.offsetWidth = `${initialItemWidth}px`));
 
   const tl = gsap.timeline({});
@@ -56,7 +56,7 @@ function kKao4SlideTuSach({
 
   function prevItem() {
     if (!isAnimating) {
-      activeIndex = Math.max(activeIndex - 1, 0);
+      activeIndex = gsap.utils.clamp(0, items.length - 1, activeIndex - 1);
       if (prevIndex !== activeIndex) {
         onSlideChange(activeIndex);
       }
@@ -101,7 +101,7 @@ function kKao4SlideTuSach({
 
   function nextItem() {
     if (!isAnimating) {
-      activeIndex = Math.min(activeIndex + 1, items.length - 1);
+      activeIndex = gsap.utils.clamp(0, items.length - 1, activeIndex + 1);
       if (prevIndex !== activeIndex) {
         onSlideChange(activeIndex);
       }

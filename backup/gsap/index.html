@@ -9,20 +9,33 @@
   </head>
 
   <body>
-    <div class="box gradient-green green"></div>
-    <div class="box gradient-purple purple"></div>
-    <div class="box gradient-blue blue"></div>
+    <main style="height: 100vh; padding: 0 8rem;">
+      <div class="box gradient-green green"></div>
+      <div class="box gradient-purple purple"></div>
+      <div class="box gradient-blue blue"></div>
+      <div class="box black"></div>
 
-    <div class="btn-container">
-      <button id="play">play()</button>
-      <button id="pause">pause()</button>
-      <button id="resume">resume()</button>
-      <button id="reverse">reverse()</button>
-      <button id="restart">restart()</button>
-      <button id="timeScale">timeScale()</button>
-    </div>
+      <div class="btn-container">
+        <button id="play">play()</button>
+        <button id="pause">pause()</button>
+        <button id="resume">resume()</button>
+        <button id="reverse">reverse()</button>
+        <button id="restart">restart()</button>
+        <button id="timeScale">timeScale()</button>
+        <button id="clear">clear()</button>
+      </div>
+    </main>
+
+    <main>
+      <div class="loop-container">
+        <div class="item-loop"></div>
+        <div class="item-loop"></div>
+        <div class="item-loop"></div>
+      </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="../../utils/GSDevTools.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

@@ -22,7 +22,6 @@ function init() {
 
   swiper.on("progress", () => {
     const activeIndex = Math.floor(swiper.progress / progressPerSlide);
-    // console.log("🚀 ~ init ~ activeIndex:", activeIndex);
 
     const dragging = Math.abs(swiper.progress - prevProgress) < 0.01;
     slides.forEach((slide, i) => {
@@ -30,12 +29,10 @@ function init() {
       if (i !== activeIndex) {
         gsap.set(image, { opacity: 0 });
       } else {
-        // console.log("🚀 ~ slides.forEach ~ dragging:", dragging + " / " + swiper.progress);
         gsap.set(image, { opacity: 1, delay: dragging ? 0 : 1 });
       }
       const currentProgress = (swiper.progress - progressPerSlide * i) / progressPerSlide;
       if (i === 0) {
-        // console.log(currentProgress);
         if (dragging) {
           decos.forEach((deco, j) => {
             deco.style.transition = "none";

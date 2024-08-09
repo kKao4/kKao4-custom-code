@@ -40,6 +40,7 @@ class kKao4ParallaxSwiper {
     const images = document.querySelectorAll(imageEl);
     const contents = document.querySelectorAll(contentEl);
     let prevProgress = 0;
+    let isGsap = typeof gsap !== "undefined";
 
     if (swiperOptions.prevEl && swiperOptions.nextEl) {
       const prevSlideButton = document.querySelector(swiperOptions.prevEl);
@@ -61,7 +62,9 @@ class kKao4ParallaxSwiper {
 
     const updateTransforms = (realIndex, progressPerSlide, dragging) => {
       images.forEach((img, i) => {
-        const parallax = Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
+        const parallax = isGsap
+          ? gsap.utils.clamp(-1, 1, (swiper.progress - progressPerSlide * i) / progressPerSlide)
+          : Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
         const translateX = `${parallax * 100}%`;
 
         if (realIndex < i) {
@@ -76,26 +79,26 @@ class kKao4ParallaxSwiper {
         }
 
         if (realIndex - 1 === i) {
-          const parallaxPrev = Math.min(
-            Math.max((progressPerSlide * (i + 1) - swiper.progress) / progressPerSlide, 0),
-            1
-          );
+          const parallaxPrev = isGsap
+            ? gsap.utils.clamp(0, 1, (progressPerSlide * (i + 1) - swiper.progress) / progressPerSlide)
+            : Math.min(Math.max((progressPerSlide * (i + 1) - swiper.progress) / progressPerSlide, 0), 1);
           img.style.transition = dragging ? "none" : `all ${speed}ms ease`;
           img.style.transform = `translateX(${100 - parallaxPrev * 100}%)`;
         }
 
         if (realIndex + 1 === i) {
-          const parallaxNext = Math.min(
-            Math.max((swiper.progress - progressPerSlide * (i - 1)) / progressPerSlide, 0),
-            1
-          );
+          const parallaxNext = isGsap
+            ? gsap.utils.clamp(0, 1, (swiper.progress - progressPerSlide * (i - 1)) / progressPerSlide)
+            : Math.min(Math.max((swiper.progress - progressPerSlide * (i - 1)) / progressPerSlide, 0), 1);
           img.style.transition = dragging ? "none" : `all ${speed}ms ease`;
           img.style.transform = `translateX(-${100 - parallaxNext * 100}%)`;
         }
       });
 
       contents.forEach((content, i) => {
-        const parallax = Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
+        const parallax = isGsap
+          ? gsap.utils.clamp(-1, 1, (swiper.progress - progressPerSlide * i) / progressPerSlide)
+          : Math.min(Math.max((swiper.progress - progressPerSlide * i) / progressPerSlide, -1), 1);
         content.style.transition = dragging ? "none" : `all ${speed}ms ease`;
         content.style.transform = `translateX(${parallax * parallaxContent * 100}%)`;
       });

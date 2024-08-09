@@ -44,7 +44,6 @@ class kKao4ShuttersSwiper {
       const decoRightSecondaryContainers = document.querySelectorAll(".deco-right-secondary");
       const contents = document.querySelectorAll(contentEl);
 
-      // set initial style for all deco
       decoLeftPrimaryContainers.forEach((container, i) => {
         container.style.left = `${decoPositionPercent}%`;
         container.style.width = `${decoWidthPercent}%`;
@@ -66,13 +65,12 @@ class kKao4ShuttersSwiper {
         container.querySelector("img").style.transform = `translateX(-${100 - decoPositionPercent * 2}%)`;
       });
 
-      // calculate progress per slide
       const images = document.querySelectorAll(".slide-image");
       const progressPerSlide = 1 / (swiper.slides.length - 1);
 
+      let isGsap = typeof gsap !== "undefined";
       let prevProgress = 0;
 
-      // event on slide progress change
       swiper.on("progress", (swiper) => {
         images.forEach((img, i) => {
           const decoLeftPrimary = decoLeftPrimaryContainers[i].querySelector("img");
@@ -81,10 +79,10 @@ class kKao4ShuttersSwiper {
           const decoRightSecondary = decoRightSecondaryContainers[i].querySelector("img");
           const content = contents[i];
 
-          // calculate current progress for slide
-          const progressSlide = Math.min(Math.max(-1, (swiper.progress - progressPerSlide * i) / progressPerSlide), 1);
+          const progressSlide = isGsap
+            ? gsap.utils.clamp(-1, 1, (swiper.progress - progressPerSlide * i) / progressPerSlide)
+            : Math.min(Math.max(-1, (swiper.progress - progressPerSlide * i) / progressPerSlide), 1);
 
-          // compare old and new progress to detect drag or not drag
           const dragging = Math.abs(swiper.progress - prevProgress) < 0.02;
 
           function parallaxTranslateMainImage() {
@@ -156,7 +154,6 @@ class kKao4ShuttersSwiper {
           parallaxContent();
         });
 
-        // set new prev progress
         prevProgress = swiper.progress;
       });
     }

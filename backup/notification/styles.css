@@ -143,8 +143,8 @@ main {
 @media (max-width: 768px) {
   .noti-container {
     width: 92%;
-    bottom: 1rem;
+    bottom: 0;
     right: 50%;
-    transform: translate(50%, calc(100% + 1rem));
+    transform: translate(50%, 100%);
   }
 }

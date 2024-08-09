@@ -42,7 +42,7 @@ function init() {
   });
   function prevItem() {
     if (!isAnimating) {
-      activeIndex = Math.max(activeIndex - 1, 0);
+      activeIndex = gsap.utils.clamp(0, items.length - 1, activeIndex - 1);
       const tl = gsap.timeline({});
       tl.addLabel("root");
       tl.to(
@@ -78,7 +78,7 @@ function init() {
   }
   function nextItem() {
     if (!isAnimating) {
-      activeIndex = Math.min(activeIndex + 1, items.length - 1);
+      activeIndex = gsap.utils.clamp(0, items.length - 1, activeIndex + 1);
       const tl = gsap.timeline({});
       tl.addLabel("root");
       tl.to(

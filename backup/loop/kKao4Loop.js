@@ -50,7 +50,7 @@ function kKao4Loop({ speed = 4000, hoverSlow = 0.4, containerEl, itemEl } = {}) 
   });
   gsap.ticker.add(() => {
     const item = document.querySelectorAll(itemEl)[0];
-    if (Math.abs(parseFloat(item.getBoundingClientRect().left)) >= Math.abs(parseFloat(item.offsetWidth))) {
+    if (Math.abs(parseFloat(item.getBoundingClientRect().left)) >=  abs(parseFloat(item.offsetWidth))) {
       const progressDecrease =
         (parseFloat(item.offsetWidth) +
           parseFloat(window.getComputedStyle(item).marginLeft) +

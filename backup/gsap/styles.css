@@ -906,15 +906,58 @@ code .token.url {
   pointer-events: none;
 }
 
-body {
+main {
   display: flex;
   align-items: center;
   justify-content: space-around;
   min-height: 100vh;
   flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .btn-container {
   display: flex;
   gap: 0.75rem;
+}
+
+.loop-container {
+  display: flex;
+  width: max-content;
+  overflow: visible;
+  flex-wrap: nowrap;
+  width: 100%;
+  animation: loop 8s linear infinite;
+  animation-fill-mode: backwards;
+}
+
+.item-loop {
+  height: 8rem;
+  width: 100%;
+  flex: none;
+}
+
+.item-loop:nth-child(1),
+.item-loop:nth-child(3) {
+  background-color: pink;
+}
+
+.item-loop:nth-child(2),
+.item-loop:nth-child(4) {
+  background-color: orange;
+}
+
+@keyframes loop {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-200%, 0);
+  }
+}
+
+.black {
+  background-color: #000;
+  border: 2px solid #fff;
+  align-self: flex-start;
 }
